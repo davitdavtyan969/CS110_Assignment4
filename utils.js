@@ -8,6 +8,7 @@ let mat2 = [
     [7, 8]
 ]
 
+
 function multiplyMatrices(mat1, mat2){ //Exercise 1
     let result = [];
     for(let row = 0; row < mat1.length; ++row){
@@ -27,7 +28,7 @@ console.log(multiplyMatrices(mat1, mat2));
 
 
 module.exports = {
-    multiplyMatrices    
+    multiplyMatrices, sumOfMatrices, sumOfEachRow    
 }
 
 
@@ -50,9 +51,7 @@ function sumOfMatrices(mat1, mat2){ //Exercise 2
 console.log(sumOfMatrices(mat1, mat2));
 
 
-module.exports = {
-    sumOfMatrices
-}
+
 
 
 
@@ -81,6 +80,3 @@ function sumOfEachRow(matrix){ //Exercise 3
 
 console.log(sumOfEachRow(matrix));
 
-module.exports = {
-    sumOfEachRow
-}
