@@ -1,52 +1,86 @@
-
-// function det(matrix){
-//     return matrix[0] [0] * matrix[1] [1] - matrix[1] [0] * matrix[0] [1]
-// }
-
 let mat1 = [
     [1, 2],
-    [3, 4],
+    [3, 4]
 ]
 
 let mat2 = [
     [5, 6],
-    [7, 8],
+    [7, 8]
 ]
 
-// console.log(det(A));
-// console.log(A[0] [0]);
-
-
-// function trace(matrix){
-//     let sum = 0;
-//     for(let row = 0; row < matrix.length; ++row){
-//         for(let col = 0; col < matrix[0].length; ++col){
-//             if(row == col){
-//                 sum += matrix[row] [col]
-//             }
-//         }
-//     } 
-
-//     return sum 
-// }
-
-// console.log(trace(A));
-
-function matrixProduct(mat1, mat2){
-    let newMat = [];
+function multiplyMatrices(mat1, mat2){ //Exercise 1
+    let result = [];
     for(let row = 0; row < mat1.length; ++row){
+        result[row] = [];
         for(let col = 0; col < mat2[0].length; ++col){
-            for(let col = 0; row)
-            newMat[row][col] = mat1[row][col] * mat2[row][col]
+            let sum = 0;
+            for(let i = 0; i < mat1[0].length; ++i){
+                sum += mat1[row][i] * mat2[i][col];
+            }
+            result[row][col] = sum 
+        }
+    }
+    return result
+}
+
+console.log(multiplyMatrices(mat1, mat2));
+
+
+module.exports = {
+    multiplyMatrices    
+}
+
+
+
+
+
+
+
+
+function sumOfMatrices(mat1, mat2){ //Exercise 2
+    for(let row = 0; row < mat1.length; ++row){
+        for(let col = 0; col < mat1[0].length; ++col){
+            mat1[row][col] += mat2[row][col]
         }
     }
 
-    return newMat;
+    return mat1
 }
 
-console.log(matrixProduct(mat1, mat2));
+console.log(sumOfMatrices(mat1, mat2));
 
 
-// if(mat1.length !== mat2.length || mat1[0].length !== mat2[0].length){
-//     console.log("Invalid input");
-// }
+module.exports = {
+    sumOfMatrices
+}
+
+
+
+
+
+
+
+
+let matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+function sumOfEachRow(matrix){ //Exercise 3
+    let finalMatrix = [];
+    for(let row = 0; row < matrix.length; ++row){
+        let sum = 0;
+        for(let col = 0; col < matrix[row].length; ++col){
+            sum += matrix[row][col]
+        }
+        finalMatrix.push(sum);
+    }
+    return finalMatrix        
+}
+
+console.log(sumOfEachRow(matrix));
+
+module.exports = {
+    sumOfEachRow
+}
